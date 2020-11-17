@@ -3,8 +3,8 @@
 function createStore(reducer){
   let state;
 
-  function dispatch(reducer){
-    state = reducer(state, dispatch)
+  function dispatch(action){
+    state = reducer(state, action)
     render()
   }
 
@@ -33,6 +33,7 @@ function render() {
 };
 
 let store = createStore(candyReducer)
+
 store.dispatch( { type: '@@INIT'})
 
 store.dispatch( { type: "ADD_CANDY" } )
